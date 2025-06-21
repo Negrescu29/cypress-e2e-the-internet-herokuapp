@@ -33,15 +33,15 @@ jobs:
         run: ls -l cypress/reports
 
       - name: Find latest Mochawesome HTML report
-      id: find_report
-      run: |
-        latest=$(ls -t cypress/reports/index*.html 2>/dev/null | head -n 1)
-        if [ -z "$latest" ]; then
-          echo "No report found" >&2
-          exit 1
-        else
-          echo "latest_report=$latest" >> $GITHUB_OUTPUT
-        fi      
+        id: find_report
+        run: |
+          latest=$(ls -t cypress/reports/index*.html 2>/dev/null | head -n 1)
+          if [ -z "$latest" ]; then
+            echo "No report found" >&2
+            exit 1
+          else
+            echo "latest_report=$latest" >> $GITHUB_OUTPUT
+          fi
 
       - name: Upload latest Mochawesome HTML report
         if: always()
