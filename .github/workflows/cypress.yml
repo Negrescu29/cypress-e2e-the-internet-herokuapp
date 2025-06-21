@@ -46,7 +46,7 @@ jobs:
           path: ${{ steps.find_report.outputs.latest_report }}
 
       - name: List all files in cypress/reports
-        run: find cypress/reports
+        run: ls -l cypress/reports
 
       - name: Upload Cypress videos (on failure)
         if: failure()
