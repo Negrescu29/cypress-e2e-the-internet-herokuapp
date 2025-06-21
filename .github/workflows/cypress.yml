@@ -28,14 +28,19 @@ jobs:
       - name: Generate Mochawesome report
         run: npm run generate:report
 
-      - name: List all files in cypress/reports
-        run: find cypress/reports
+      - name: List reports directory
+        if: always()
+        run: ls -l cypress/reports
 
       - name: Upload Mochawesome HTML report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: mochawesome-report
           path: cypress/reports/**
+
+      - name: List all files in cypress/reports
+        run: find cypress/reports
 
       - name: Upload Cypress videos (on failure)
         if: failure()
