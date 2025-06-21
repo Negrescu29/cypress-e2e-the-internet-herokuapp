@@ -49,3 +49,14 @@ jobs:
         with:
           name: cypress-screenshots
           path: cypress/screenshots
+
+      - name: Add Mochawesome report info to summary
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            core.summary
+              .addHeading('Test Artifacts')
+              .addLink('Download Mochawesome HTML Report (artifact)', 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}')
+              .addRaw('After the run completes, scroll down to the Artifacts section and download <b>mochawesome-report</b>.')
+              .write()
