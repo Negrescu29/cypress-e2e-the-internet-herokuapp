@@ -1,0 +1,8 @@
+{
+  "searchTerms": ["iPhone", "MacBook", "Samsung", "Canon"],
+  "testProduct": {
+    "name": "iPhone",
+    "expectedResults": ["iPhone", "Apple"],
+    "minResults": 1
+  }
+}
