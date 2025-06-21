@@ -13,7 +13,9 @@
     "test:smoke": "cypress run --spec 'cypress/e2e/**/*smoke*.cy.js'",
     "test:regression": "cypress run --spec 'cypress/e2e/**/*.cy.js'",
     "test:api": "cypress run --spec 'cypress/e2e/**/*api*.cy.js'",
-    "generate:report": "npx mochawesome-merge cypress/reports/*.json > cypress/reports/merged-report.json && npx marge cypress/reports/merged-report.json --reportDir cypress/reports --inline"
+    "test": "cypress run",
+    "merge:reports": "npx mochawesome-merge cypress/reports/*.json > cypress/reports/merged-report.json",
+    "generate:report": "npm run merge:reports && npx marge cypress/reports/merged-report.json --reportDir cypress/reports --inline"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +25,9 @@
     "cypress": "^14.5.0",
     "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-real-events": "^1.14.0",
-    "cypress-visual-testing": "^1.0.3"
+    "cypress-visual-testing": "^1.0.3",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^5.0.0",
+    "mochawesome-report-generator": "^6.2.0"
   }
 }

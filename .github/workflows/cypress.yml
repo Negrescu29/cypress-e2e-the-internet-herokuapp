@@ -2,11 +2,9 @@ name: Cypress Tests
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   cypress-run:
@@ -25,7 +23,7 @@ jobs:
         run: npm ci
 
       - name: Run Cypress tests
-        run: npx cypress run
+        run: npm run test
 
       - name: Generate Mochawesome report
         run: npm run generate:report
@@ -61,5 +59,5 @@ jobs:
             core.summary
               .addHeading('Test Artifacts')
               .addLink('Download Mochawesome HTML Report (artifact)', 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}')
-              .addRaw('After the run completes, scroll down to the Artifacts section and download <b>index.html</b> from <b>mochawesome-report</b>.')
+              .addRaw('After the run completes, scroll down to the Artifacts section and download <b>index.html</b> (or similar) from <b>mochawesome-report</b>.')
               .write()

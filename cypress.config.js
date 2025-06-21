@@ -22,6 +22,14 @@ module.exports = defineConfig({
       username: "testuser@example.com",
       password: "testpassword123",
     },
+    reporter: "cypress-mochawesome-reporter",
+    reporterOptions: {
+      reportDir: "cypress/reports",
+      overwrite: false,
+      html: true,
+      json: true,
+      charts: true,
+    },
     setupNodeEvents(on, config) {
       // Implement mochawesome reporter
       require("cypress-mochawesome-reporter/plugin")(on);
@@ -57,13 +65,5 @@ module.exports = defineConfig({
 
       return config;
     },
-  },
-  reporter: "cypress-mochawesome-reporter",
-  reporterOptions: {
-    reportDir: "cypress/reports",
-    overwrite: false,
-    html: true,
-    json: true,
-    charts: true,
   },
 });
