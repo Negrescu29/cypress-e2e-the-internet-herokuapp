@@ -32,26 +32,15 @@ jobs:
         if: always()
         run: ls -l cypress/reports
 
-      - name: Find latest Mochawesome HTML report
-        id: find_report
-        run: |
-          latest=$(ls -t cypress/reports/index*.html 2>/dev/null | head -n 1)
-          if [ -z "$latest" ]; then
-            echo "No report found" >&2
-            exit 1
-          else
-            echo "latest_report=$latest" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Upload latest Mochawesome HTML report
+      - name: Upload Mochawesome HTML report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: mochawesome-report
-          path: ${{ steps.find_report.outputs.latest_report }}
+          path: cypress/reports/**
 
       - name: List all files in cypress/reports
-        run: ls -l cypress/reports
+        run: find cypress/reports
 
       - name: Upload Cypress videos (on failure)
         if: failure()
