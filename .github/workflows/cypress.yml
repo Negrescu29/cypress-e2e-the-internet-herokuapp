@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: mochawesome-report
-          path: cypress/reports/index_*.html
+          path: cypress/reports/**
 
       - name: Upload Cypress videos (on failure)
         if: failure()
