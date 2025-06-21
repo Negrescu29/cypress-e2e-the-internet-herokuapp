@@ -58,5 +58,5 @@ jobs:
             core.summary
               .addHeading('Test Artifacts')
               .addLink('Download Mochawesome HTML Report (artifact)', 'https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}')
-              .addRaw('After the run completes, scroll down to the Artifacts section and download <b>mochawesome-report</b>.')
+              .addRaw('After the run completes, scroll down to the Artifacts section and download <b>index.html</b> from <b>mochawesome-report</b>.')
               .write()
