@@ -12,6 +12,7 @@ module.exports = defineConfig({
     responseTimeout: 10000,
     failOnStatusCode: false,
     video: true,
+    videoUploadOnPasses: false,
     screenshotOnRunFailure: true,
     retries: {
       runMode: 1,
