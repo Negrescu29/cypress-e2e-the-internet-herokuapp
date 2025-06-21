@@ -27,6 +27,15 @@ jobs:
       - name: Run Cypress tests
         run: npx cypress run
 
+      - name: Generate Mochawesome report
+        run: npm run generate:report
+
+      - name: Upload Mochawesome HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-report
+          path: cypress/reports/index.html
+
       - name: Upload Cypress videos (on failure)
         if: failure()
         uses: actions/upload-artifact@v4
