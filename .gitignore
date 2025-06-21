@@ -8,6 +8,4 @@ cypress/downloads/
 cypress/reports/screenshots/
 cypress/reports/videos/
 
-# Cypress Mochawesome and other reports (if you don't want to keep them in git)
-cypress/reports/
 .env
