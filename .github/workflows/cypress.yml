@@ -32,12 +32,18 @@ jobs:
         if: always()
         run: ls -l cypress/reports
 
-      - name: Upload Mochawesome HTML report
+      - name: Find latest Mochawesome HTML report
+        id: find_report
+        run: |
+          latest=$(ls -t cypress/reports/index*.html | head -n 1)
+          echo "latest_report=$latest" >> $GITHUB_OUTPUT
+
+      - name: Upload latest Mochawesome HTML report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: mochawesome-report
-          path: cypress/reports/**
+          path: ${{ steps.find_report.outputs.latest_report }}
 
       - name: List all files in cypress/reports
         run: find cypress/reports
