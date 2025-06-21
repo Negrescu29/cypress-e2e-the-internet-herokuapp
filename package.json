@@ -15,7 +15,7 @@
     "test:api": "cypress run --spec 'cypress/e2e/**/*api*.cy.js'",
     "test": "cypress run",
     "merge:reports": "npx mochawesome-merge cypress/reports/*.json > cypress/reports/merged-report.json",
-    "generate:report": "npm run merge:reports && npx marge cypress/reports/merged-report.json --reportDir cypress/reports --inline"
+    "generate:report": "npm run merge:reports && npx marge cypress/reports/merged-report.json --reportDir cypress/reports --inline && mv cypress/reports/index.html cypress/reports/index_$(date +%Y-%m-%d_%H-%M).html || true"
   },
   "keywords": [],
   "author": "",
